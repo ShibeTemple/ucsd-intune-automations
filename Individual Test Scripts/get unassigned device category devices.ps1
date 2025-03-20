@@ -6,7 +6,7 @@ Get-Content ..\icf-automation.env | foreach {
   }
   Set-Content env:\$name $value
   echo "hello"
-  echo "$name: $value"
+  echo "var: $name $value"
 }
 
 echo "continue?"
