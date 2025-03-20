@@ -1,4 +1,18 @@
-Connect-MgGraph #authenticate
+Get-Content ..\icf-automation.env | foreach {
+  $name, $value = $_.split('=')
+  if ([string]::IsNullOrWhiteSpace($name) || $name.Contains('#')) {
+    return
+	echo "skipping empty env line"
+  }
+  Set-Content env:\$name $value
+  echo "hello"
+  echo "$name: $value"
+}
+
+echo "continue?"
+pause
+
+Connect-MgGraph -ClientID $env:MG_CLIENT_ID -TenantId $env:MG_TENANT_ID -CertificateThumbprint $env:MG_CERTIFICATE_THUMBPRINT
 
 # https://github.com/microsoft/mggraph-intune-samples/blob/main/ManagedDevices/ManagedDevices_Get.ps1
 Import-Module Microsoft.Graph.DeviceManagement
