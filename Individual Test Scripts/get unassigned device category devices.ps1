@@ -1,6 +1,6 @@
 Get-Content ..\icf-automation.env | foreach {
   $name, $value = $_.split('=')
-  if ([string]::IsNullOrWhiteSpace($name) || $name.Contains('#')) {
+  if ([string]::IsNullOrWhiteSpace($name) -or $name.Contains('#')) {
     return
 	echo "skipping empty env line"
   }
