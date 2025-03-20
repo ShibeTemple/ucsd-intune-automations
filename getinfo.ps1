@@ -17,6 +17,7 @@ Import-Module Microsoft.Graph.DeviceManagement
 #Retrieve all managed devices by UPN of primary user
 #Get-MgDeviceManagementManagedDevice -Filter "userPrincipalName eq '$UPN'"
 # All params: https://learn.microsoft.com/en-us/graph/api/intune-devices-manageddevice-get?view=graph-rest-1.0#response-1
+$UNASSIGNED = 'Unassigned'
 Get-MgDeviceManagementManagedDevice -Filter "deviceCategoryDisplayName eq '$UNASSIGNED'"
 
 
