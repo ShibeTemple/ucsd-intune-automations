@@ -1,4 +1,4 @@
-Connect-MSGraph #authenticate
+Connect-MgGraph #authenticate
 
 # https://github.com/microsoft/mggraph-intune-samples/blob/main/ManagedDevices/ManagedDevices_Get.ps1
 Import-Module Microsoft.Graph.DeviceManagement
